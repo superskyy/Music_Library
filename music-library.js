@@ -20,18 +20,10 @@ MusicLibrary.prototype.addplaylist = function (newPlaylist) {
 	this.playlist.push(newPlaylist);
 }
 
-const lib1 = new MusicLibrary('Peter', "Syn");
-lib1.addplaylist("playlist1");
-console.log(lib1);
-
 //Adding Tracks to Playlist
 Playlist.prototype.addtrack = function (newTrack) {
 	this.tracks.push(newTrack);
 }
-
-const track1 = new Playlist('Calgary');
-track1.addtrack("Beatles");
-console.log(track1);
 
 //Track
 Tracks.prototype.overallRating = function(rate) {
@@ -44,31 +36,16 @@ Tracks.prototype.totalDuration = function(time) {
 	this.length += time;
 }
 
-const trackInfo1 = new Tracks("Adam Smith - Lake");
-trackInfo1.overallRating(4);
-trackInfo1.totalDuration(236);
+// Adding Playlist, Tracks
+const lib1 = new MusicLibrary('Peter', "Syn");
+const playlist1 = new Playlist('Calgary');
+const track1 = new Tracks("Adam Smith - Lake");
+track1.overallRating(4);
+track1.totalDuration(236);
 
-const trackInfo2 = new Tracks("Derson - Slow");
-trackInfo2.overallRating(5);
-trackInfo2.totalDuration(180);
+lib1.addplaylist(playlist1);
+playlist1.addtrack(track1);
 
-console.log(trackInfo1);
-console.log(trackInfo2);
-
-
-
-
-
-
-
-
-
-
-
-// function Playlist () {
-
-// }
-
-// function Track () {
-
-// }
+console.log(lib1);
+// console.log(playlist1);
+console.log(track1);
