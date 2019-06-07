@@ -11,11 +11,50 @@ function Playlist (name) {
 
 function Tracks (title, rating, length) {
 	this.title = title;
-	this.rating = rating;
-	this.length = length;
+	this.rating = 0;
+	this.length = 0;
 }
 
-const artist = new MusicLibrary('Peter', "Syn")
+//Music Library
+MusicLibrary.prototype.addplaylist = function (newPlaylist) {
+	this.playlist.push(newPlaylist);
+}
+
+const lib1 = new MusicLibrary('Peter', "Syn");
+lib1.addplaylist("playlist1");
+console.log(lib1);
+
+//Adding Tracks to Playlist
+Playlist.prototype.addtrack = function (newTrack) {
+	this.tracks.push(newTrack);
+}
+
+const track1 = new Playlist('Calgary');
+track1.addtrack("Beatles");
+console.log(track1);
+
+//Track
+Tracks.prototype.overallRating = function(rate) {
+	this.rating += rate;
+	if (this.rating < 1 && this.rating > 5) {
+		this.rating = 5;
+	}
+}
+Tracks.prototype.totalDuration = function(time) {
+	this.length += time;
+}
+
+const trackInfo1 = new Tracks("Adam Smith - Lake");
+trackInfo1.overallRating(4);
+trackInfo1.totalDuration(236);
+
+const trackInfo2 = new Tracks("Derson - Slow");
+trackInfo2.overallRating(5);
+trackInfo2.totalDuration(180);
+
+console.log(trackInfo1);
+console.log(trackInfo2);
+
 
 
 
